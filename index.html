@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>⚽ Futebol das Estrelas - Heloisa Francisco</title>
+<title>🎺 Football Game Celebrations</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
-<div><h1>⚽ Futebol das Estrelas</h1><p>CR7 • Messi • Neymar • Haaland • Yamal • Lewandowski e muito mais!</p></div>
+<div><h1>🎺 Football Game Celebrations</h1><p>CR7 • Messi • Neymar • Haaland • Yamal • Lewandowski e muito mais!</p></div>
 <div><button class="sec" onclick="mostrar('tela-inicio')">🏠 Início</button></div>
 </header>
 <main>
@@ -16,8 +16,8 @@
 <h2>Escolha o modo de jogo 🎮</h2>
 <p>Times: Juventus, Chelsea, Real Madrid, Barça, Atlético de Madrid, Arsenal, Corinthians, Palmeiras, Inter Miami, Flamengo, Vasco + Seleções (Brasil, Argentina, Portugal, França, Espanha, Inglaterra, Alemanha).</p>
 <div class="modes">
-<button onclick="irPenaltis()">🥅 Pênaltis dos Craques<br><small>Escolha batedor e decida</small></button>
-<button onclick="irSimulacao()">🏟️ Simular Partida<br><small>Time x Time com narração</small></button>
+<button onclick="irPenaltis()">🥅 Pênaltis dos Craques<br><small>Com árbitro em campo</small></button>
+<button onclick="irSimulacao()">🏟️ Partida 3D em Tempo Real<br><small>Torcida + árbitro + celebrations</small></button>
 </div>
 <div class="card" style="margin-top:14px"><h3>⭐ Craques disponíveis</h3><p>CR7, Messi, Neymar, Haaland, Yamal, Lewandowski, Mbappé, Vini Jr, Bellingham, Kane, Salah, De Bruyne, Musiala, Valverde, Leão, Endrick, Estêvão, Griezmann.</p></div>
 </section>
@@ -33,6 +33,7 @@
 <section id="tela-jogo" class="card hidden">
 <h2>🥅 Disputa de Pênaltis</h2>
 <p id="info-jogo"></p>
+<div class="arbitro-pen">👨‍⚖️<br><small>Árbitro da partida</small></div>
 <div class="placar" id="placar"></div>
 <div id="gol">
 <div class="alvo" style="left:0;top:0" onclick="chutar('esq')">↖️</div>
@@ -40,21 +41,36 @@
 <div class="alvo" style="left:66.6%;top:0" onclick="chutar('dir')">↗️</div>
 <div id="goleiro">🧤</div><div id="bola">⚽</div>
 </div>
-<p style="text-align:center">Clique no canto do gol para chutar / defender</p>
+<p style="text-align:center">👨‍⚖️ O árbitro autorizou! Clique no canto do gol para chutar / defender</p>
 <div id="log" class="log"></div>
 <div class="row"><button class="sec" onclick="mostrar('tela-inicio')">🏠 Sair</button></div>
 </section>
 
 <section id="tela-simulacao" class="card hidden">
-<h2>🏟️ Simular Partida</h2>
+<h2>🏟️ Partida 3D em Tempo Real</h2>
 <h3>Time A</h3><div id="sim-time-a" class="grid-times"></div>
 <h3>Time B</h3><div id="sim-time-b" class="grid-times"></div>
-<div class="row"><button onclick="simularPartida()">▶️ Simular jogo!</button><button class="sec" onclick="mostrar('tela-inicio')">Voltar</button></div>
+<div class="row">
+<button onclick="iniciarPartida3D()">▶️ Jogar partida 3D!</button>
+<button class="sec" onclick="simularPartida()">⚡ Simulação rápida (texto)</button>
+<button class="sec" onclick="mostrar('tela-inicio')">Voltar</button>
+</div>
+<div id="arena" class="hidden">
+<div id="placar3d">BRA 0 x 0 ARG • 0'</div>
+<canvas id="campo3d" width="640" height="420"></canvas>
+<div class="row" style="justify-content:center">
+<button class="sec" onclick="mudarVelocidade(1)">1x</button>
+<button class="sec" onclick="mudarVelocidade(2)">2x</button>
+<button class="sec" onclick="mudarVelocidade(4)">4x Turbo</button>
+</div>
+<p style="text-align:center">👨‍⚖️ Árbitro em campo • 🥁 Torcida animada • 🎉 Celebrations a cada gol</p>
+</div>
 <div id="log-sim" class="log" style="margin-top:12px"></div>
 </section>
 </main>
-<footer>Feito por Heloisa Francisco • Futebol das Estrelas • GitHub Pages</footer>
+<footer>Football Game Celebrations • Feito por Heloisa Francisco • GitHub Pages</footer>
 <script src="js/data.js"></script>
 <script src="js/game.js"></script>
+<script src="js/match3d.js"></script>
 </body>
 </html>
