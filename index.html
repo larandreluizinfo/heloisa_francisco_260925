@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heloisa Francisco - 260925</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚽ Futebol das Estrelas - Heloisa Francisco</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Projeto Heloisa Francisco - 260925</h1>
-    <p>Site em construcao.</p>
+<header>
+<div><h1>⚽ Futebol das Estrelas</h1><p>CR7 • Messi • Neymar • Haaland • Yamal • Lewandowski e muito mais!</p></div>
+<div><button class="sec" onclick="mostrar('tela-inicio')">🏠 Início</button></div>
+</header>
+<main>
+<section id="tela-inicio" class="card">
+<h2>Escolha o modo de jogo 🎮</h2>
+<p>Times: Juventus, Chelsea, Real Madrid, Barça, Atlético de Madrid, Arsenal, Corinthians, Palmeiras, Inter Miami, Flamengo, Vasco + Seleções (Brasil, Argentina, Portugal, França, Espanha, Inglaterra, Alemanha).</p>
+<div class="modes">
+<button onclick="irPenaltis()">🥅 Pênaltis dos Craques<br><small>Escolha batedor e decida</small></button>
+<button onclick="irSimulacao()">🏟️ Simular Partida<br><small>Time x Time com narração</small></button>
+</div>
+<div class="card" style="margin-top:14px"><h3>⭐ Craques disponíveis</h3><p>CR7, Messi, Neymar, Haaland, Yamal, Lewandowski, Mbappé, Vini Jr, Bellingham, Kane, Salah, De Bruyne, Musiala, Valverde, Leão, Endrick, Estêvão, Griezmann.</p></div>
+</section>
+
+<section id="tela-penaltis" class="card hidden">
+<h2>🥅 Pênaltis dos Craques</h2>
+<h3>1️⃣ Escolha seu time</h3><div id="lista-meu-time" class="grid-times"></div>
+<h3>2️⃣ Escolha seu batedor ⭐</h3><div id="lista-craques" class="grid-craques"></div>
+<h3>3️⃣ Escolha o adversário</h3><div id="lista-adv-time" class="grid-times"></div>
+<div class="row"><button onclick="comecarPenaltis()">▶️ Começar disputa!</button><button class="sec" onclick="mostrar('tela-inicio')">Voltar</button></div>
+</section>
+
+<section id="tela-jogo" class="card hidden">
+<h2>🥅 Disputa de Pênaltis</h2>
+<p id="info-jogo"></p>
+<div class="placar" id="placar"></div>
+<div id="gol">
+<div class="alvo" style="left:0;top:0" onclick="chutar('esq')">↖️</div>
+<div class="alvo" style="left:33.3%;top:0" onclick="chutar('meio')">⬆️</div>
+<div class="alvo" style="left:66.6%;top:0" onclick="chutar('dir')">↗️</div>
+<div id="goleiro">🧤</div><div id="bola">⚽</div>
+</div>
+<p style="text-align:center">Clique no canto do gol para chutar / defender</p>
+<div id="log" class="log"></div>
+<div class="row"><button class="sec" onclick="mostrar('tela-inicio')">🏠 Sair</button></div>
+</section>
+
+<section id="tela-simulacao" class="card hidden">
+<h2>🏟️ Simular Partida</h2>
+<h3>Time A</h3><div id="sim-time-a" class="grid-times"></div>
+<h3>Time B</h3><div id="sim-time-b" class="grid-times"></div>
+<div class="row"><button onclick="simularPartida()">▶️ Simular jogo!</button><button class="sec" onclick="mostrar('tela-inicio')">Voltar</button></div>
+<div id="log-sim" class="log" style="margin-top:12px"></div>
+</section>
+</main>
+<footer>Feito por Heloisa Francisco • Futebol das Estrelas • GitHub Pages</footer>
+<script src="js/data.js"></script>
+<script src="js/game.js"></script>
 </body>
 </html>
